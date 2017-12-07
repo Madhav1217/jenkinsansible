@@ -1,0 +1,110 @@
+---
+# Optional method of pinning a specific version of Jenkins and/or overriding the
+# default Jenkins packaging URL.
+jenkins_version: "2.81"
+# jenkins_pkg_url: "https://www.example.com"
+
+jenkins_connection_delay: 5
+jenkins_connection_retries: 5
+jenkins_home: /var/lib/jenkins
+jenkins_hostname: localhost
+jenkins_http_port: 8080
+jenkins_jar_location: /opt/jenkins-cli.jar
+jenkins_plugins:
+  - ant
+#  - authentication-tokens-api
+  - bouncycastle-api
+  - branch-api
+  - build-timeout
+  - config-file-provider
+  - credentials-binding
+  - credentials
+  - display-url-api
+  - docker-commons
+#  - docker-pipeline
+  - durable-task
+#  - email-extension
+  - extended-read-permission
+#  - external-monitor-job-type
+#  - folders
+  - git-client
+  - git
+  - git-server
+  - github-api
+  - github-branch-source
+  - github-organization-folder
+  - github-branch-source
+  - github
+  - gradle
+  - icon-shim
+#  - jackson-2-api
+#  - juint
+  - ldap
+  - mailer
+  - mapdb-api
+#  - matrix-authorization-strategy
+  - matrix-project
+#  - owasp-markup-formatter
+#  - pam-authentication
+#  - pipeline
+  - pipeline-graph-analysis
+  - plain-credentials
+  - publish-over-ssh
+  - purge-job-history
+  - resource-disposer
+#  - role-based-authorization-strategy
+  - schedule-build
+  - scm-api
+  - script-security
+#  - slack-notification
+  - ssh-credentials
+  - ssh-slaves
+  - structs
+  - subversion
+  - thinbackup
+  - timestamper
+  - token-macro
+  - windows-slaves
+#  - workspace-cleanup
+ # - javascript-gui-lib: ACE Editor bundle plugin
+# JavaScript GUI Lib: Handlebars bundle plugin
+# JavaScript GUI Lib: jQuery bundles (jQuery and jQuery UI) plugin
+# JavaScript GUI Lib: Moment.js bundle plugin
+# JavaScript GUI Lib: Numeal.js bundle plugin
+# JavaScript GUI Lib: Twitter Bootstrap bundle plugin
+# Pipeline: API
+# Pipeline: Basic Steps
+# Pipeline: Build Step
+# Pipeline: Declarative Agent API
+# Pipeline: Declarative Extension Points API
+# Pipeline: GitHub Groovy Libraries
+# Pipeline: Grovvy
+# Pipeline: Input Step
+# Pipeline: Job
+# Pipeline: Milestone Step
+# Pipeline: Model API
+# Pipeline: Model Definition
+# Pipeline: Multibranch
+# Pipeline: Multibranch with defaults
+# Pipeline: Nodes and Processes
+# Pipeline: REST API Plugin
+# Pipeline: SCM Step
+# Pipeline: Shared Groovy Libraries
+# Pipeline: Stage Step
+# Pipeline: Stage Tags Metadata
+# Pipeline: Stage View Plugin
+# Pipeline: Step API
+# Pipeline: Supporting APIs
+
+jenkins_url_prefix: "/jenkins"
+jenkins_java_options: "-Djenkins.install.runSetupWizard=false -Dhudson.model.DirectoryBrowserSupport.CSP="
+
+jenkins_admin_username: admin
+jenkins_admin_password: GRNadmin@22
+jenkins_admin_password_file: ""
+
+jenkins_init_changes:
+  - option: "JENKINS_ARGS"
+    value: "--prefix={{ jenkins_url_prefix }}"
+  - option: "{{ jenkins_java_options_env_var }}"
+    value: "{{ jenkins_java_options }}"

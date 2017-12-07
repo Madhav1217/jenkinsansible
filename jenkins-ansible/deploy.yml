@@ -1,0 +1,9 @@
+---
+- name: Setup Jenkins Master
+  hosts: jenkins
+  become: yes
+  roles:
+    - ansible-role-java
+    - jenkins
+  tags:
+    - deploy_jenkins_master
